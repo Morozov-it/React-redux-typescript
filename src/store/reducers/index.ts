@@ -5,3 +5,6 @@ import { userReducer } from './userReducer'
 export const rootReducer = combineReducers({
     user: userReducer,
 })
+
+//получаем на экспорт тип корневого редюсера для работы хука useSelector
+export type RootState = ReturnType<typeof rootReducer>
