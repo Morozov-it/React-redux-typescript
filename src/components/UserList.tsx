@@ -24,6 +24,7 @@ const UserList: React.FC = () => {
     }
     return (
         <div>
+            <h2>Users</h2>
             {users.map((user) =>
                 <div key={user.id}>{user.name}</div>
             )}
