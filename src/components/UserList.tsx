@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { fetchUsers } from '../store/action-creators/user';
 
 
 //указание функционального компонента
@@ -9,10 +8,12 @@ const UserList: React.FC = () => {
 
     //свой хук для получения store
     const {users, error, loading} = useTypedSelector(state => state.user);
-    const dispatch = useDispatch();
+
+    //свой хук для получения функции actionCreator
+    const {fetchUsers } = useActions();
 
     useEffect(() => {
-        dispatch(fetchUsers());
+        fetchUsers()
     }, []);
 
     if (loading) {
